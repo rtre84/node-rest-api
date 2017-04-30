@@ -17,7 +17,8 @@ app.use(bodyParser.json());
 var port     = process.env.PORT || 8080; // set our port
 
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+mongoose.connect('mongodb://rtre84:Drwxrw2#@ds031203.mlab.com:31203/meteor-reaction');
 var Bear     = require('./app/models/bear');
 
 // ROUTES FOR OUR API
@@ -36,6 +37,36 @@ router.use(function(req, res, next) {
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
 	res.json({ message: 'hooray! welcome to our api!' });	
+});
+
+router.post('/georesponse', function(req, res) {
+		console.log(req.body);
+
+    	var body = req.body;
+
+		var traffic = body.traffic;
+		var schools = body.schools;
+		var price = body.price;
+		var crime = body.crime;
+		var nature = body.nature;
+		var people = body.people;
+
+		console.log("example of json payload: " + traffic);
+    	console.log(randomIntInc(30,60));
+
+    	var object = {
+			call:"KF6GPE",
+			type:"p",
+			time:"1399371514",
+			lasttime:"1418597513",
+			lat:42.363919,
+			lng:-71.060482,
+			result: "ok"
+		};
+
+	    json = JSON.stringify(object);
+
+    	res.json(json);
 });
 
 // on routes that end in /bears
