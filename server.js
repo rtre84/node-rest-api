@@ -52,7 +52,7 @@ router.post('/georesponse', function(req, res) {
 		var people = body.people;
 
 		console.log("example of json payload: " + traffic);
-    	console.log(randomIntInc(30,60));
+    	// console.log(randomIntInc(30,60));
 
     	var object = {
 			call:"KF6GPE",
